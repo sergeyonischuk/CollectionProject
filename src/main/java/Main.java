@@ -11,7 +11,7 @@ public class Main {
         System.out.println(hashMap);
         System.out.println(hashMap.size());
 
-        System.out.println(hashMap.get(1));
+        System.out.println(hashMap.get("0"));
 
     }
 }

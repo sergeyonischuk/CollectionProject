@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Objects;
 
 public class MyQueue<T> {
@@ -53,9 +52,14 @@ public class MyQueue<T> {
 
     @Override
     public String toString() {
-        return "MyQueue{" +
-                "elements=" + Arrays.toString(elements) +
-                ", size=" + size +
-                '}';
+        if (size == 0) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+
+        for (Object element : elements) {
+            builder.append(element);
+        }
+        return builder.toString();
     }
 }

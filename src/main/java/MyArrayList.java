@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Objects;
 
 public class MyArrayList<T> {
@@ -38,11 +37,14 @@ public class MyArrayList<T> {
 
     @Override
     public String toString() {
+        if (size == 0) {
+            return "";
+        }
         StringBuilder builder = new StringBuilder();
 
-        return "MyArrayList{" +
-                "elements=" + Arrays.toString(elements) +
-                ", size=" + size +
-                '}';
+        for (Object element : elements) {
+            builder.append(element);
+        }
+        return builder.toString();
     }
 }

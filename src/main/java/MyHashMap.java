@@ -1,4 +1,3 @@
-
 public class MyHashMap<K, V> {
     private int size;
     private MyNode first;
@@ -29,6 +28,7 @@ public class MyHashMap<K, V> {
             MyNode current = first;
             for (int i = 0; i < size; i++) {
                 if (current.key.equals(key)) {
+                    System.out.println(current.key + " " + current.value);
                     return current;
                 }
                 current = current.next;

@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Objects;
 
 public class MyStack<T> {
@@ -56,9 +55,14 @@ public class MyStack<T> {
 
     @Override
     public String toString() {
-        return "MyStack{" +
-                "elements=" + Arrays.toString(elements) +
-                ", size=" + size +
-                '}';
+        if (size == 0) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+
+        for (Object element : elements) {
+            builder.append(element);
+        }
+        return builder.toString();
     }
 }
