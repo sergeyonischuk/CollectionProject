@@ -1,3 +1,4 @@
+
 public class MyHashMap<K, V> {
     private int size;
     private MyNode first;
@@ -23,7 +24,7 @@ public class MyHashMap<K, V> {
         }
     }
 
-    public Object get (Object key) {
+    public Object get(Object key) {
         if (size > 0) {
             MyNode current = first;
             for (int i = 0; i < size; i++) {

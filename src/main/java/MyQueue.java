@@ -5,7 +5,7 @@ public class MyQueue<T> {
     private Object[] elements = new Object[DEFAULT_CAPACITY];
     private int size;
 
-    public void add(Object value) {
+    public void add(T value) {
         resizeIfNeeded();
         elements[size] = value;
         size++;
@@ -58,6 +58,9 @@ public class MyQueue<T> {
         StringBuilder builder = new StringBuilder();
 
         for (Object element : elements) {
+            if (element == null) {
+                break;
+            }
             builder.append(element);
         }
         return builder.toString();

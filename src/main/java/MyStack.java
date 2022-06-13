@@ -5,7 +5,7 @@ public class MyStack<T> {
     private Object[] elements = new Object[DEFAULT_CAPACITY];
     private int size;
 
-    public void add(Object value) {
+    public void add(T value) {
         resizeIfNeeded();
         elements[size] = value;
         size++;
@@ -43,7 +43,7 @@ public class MyStack<T> {
         }
     }
 
-    public T pop () {
+    public T pop() {
         T element = peek();
         Object[] arr = new Object[elements.length - 1];
         for (int i = 1; i < arr.length; i++) {
@@ -61,6 +61,9 @@ public class MyStack<T> {
         StringBuilder builder = new StringBuilder();
 
         for (Object element : elements) {
+            if (element == null) {
+                break;
+            }
             builder.append(element);
         }
         return builder.toString();

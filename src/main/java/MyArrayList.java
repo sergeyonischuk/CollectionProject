@@ -6,7 +6,7 @@ public class MyArrayList<T> {
     private int size;
 
 
-    public void add(Object value) {
+    public void add(T value) {
         resizeIfNeeded();
         elements[size] = value;
         size++;
@@ -43,6 +43,9 @@ public class MyArrayList<T> {
         StringBuilder builder = new StringBuilder();
 
         for (Object element : elements) {
+            if (element == null) {
+                break;
+            }
             builder.append(element);
         }
         return builder.toString();
