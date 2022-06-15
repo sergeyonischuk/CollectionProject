@@ -34,10 +34,9 @@ public class MyStack<T> {
         return size;
     }
 
-
     public T peek() {
         try {
-            return (T) elements[0];
+            return (T) elements[size - 1];
         } catch (NullPointerException e) {
             throw new IndexOutOfBoundsException("array is empty");
         }
@@ -45,11 +44,8 @@ public class MyStack<T> {
 
     public T pop() {
         T element = peek();
-        Object[] arr = new Object[elements.length - 1];
-        for (int i = 1; i < arr.length; i++) {
-            arr[i] = elements[i];
-        }
-        elements = arr;
+        elements[size - 1] = null;
+        size--;
         return element;
     }
 

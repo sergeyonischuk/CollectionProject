@@ -3,7 +3,7 @@ public class MyHashMap<K, V> {
     private int size;
     private MyNode first;
 
-    public void put(Object key, Object value) {
+    public void put(K key, V value) {
         if (size == 0) {
             first = new MyNode(key, value);
             size++;
@@ -30,12 +30,36 @@ public class MyHashMap<K, V> {
             for (int i = 0; i < size; i++) {
                 if (current.key.equals(key)) {
                     System.out.println(current.key + " " + current.value);
-                    return current;
+                    return current.value;
                 }
                 current = current.next;
             }
         }
         return null;
+    }
+
+    public void remove (Object key) {
+        if (size > 0) {
+            MyNode current = first;
+            MyNode prev = first;
+            for (int i = 0; i < size; i++) {
+                if (current.key.equals(key)) {
+                    if (current.equals(first)) {
+                        first = first.next;
+                    }
+                    if (prev != null) {
+                        prev.next = current.next;
+                    }
+                    size--;
+                    break;
+                }
+                current = current.next;
+                if (i > 0) {
+                    prev = prev.next;
+                }
+
+            }
+        }
     }
 
 

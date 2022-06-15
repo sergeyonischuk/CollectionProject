@@ -35,18 +35,24 @@ public class MyQueue<T> {
     }
 
 
+
+
     public T peek() {
         try {
-            return (T) elements[size - 1];
+            return (T) elements[0];
         } catch (NullPointerException e) {
             throw new IndexOutOfBoundsException("array is empty");
         }
     }
 
+
     public T pool() {
         T element = peek();
-        elements[size - 1] = null;
-        size--;
+        Object[] arr = new Object[elements.length - 1];
+        for (int i = 1; i < arr.length; i++) {
+            arr[i] = elements[i];
+        }
+        elements = arr;
         return element;
     }
 

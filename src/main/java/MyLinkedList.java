@@ -5,7 +5,7 @@ public class MyLinkedList<T> {
     private Node<T> first;
     private Node<T> last;
 
-    public void add(Object value) {
+    public void add(T value) {
         Node node = new Node(value);
         if (size == 0) {
             first = last = node;
@@ -49,7 +49,7 @@ public class MyLinkedList<T> {
         for (int i = 0; i < index; i++) {
             current = current.next;
         }
-        return current;
+        return current.element;
     }
 
     private class Node<T> {

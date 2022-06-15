@@ -26,6 +26,16 @@ public class MyArrayList<T> {
         size--;
     }
 
+    public T get(int index) {
+        Objects.checkIndex(index, size);
+        if (elements != null) {
+            return (T) elements[index];
+        } else {
+            return null;
+        }
+
+    }
+
     public void clear() {
         size = 0;
         elements = new Object[DEFAULT_CAPACITY];
